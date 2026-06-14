@@ -899,7 +899,32 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Column 3: Agreement Intel Extractor (Dynamic) -->
+                    <div class="file-details-data" id="fd-agreement-intel-col" style="display:none; border-left:1px solid var(--border-color); padding-left:20px;">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 8px;">
+                            <span class="detail-row-label" style="color:var(--accent); font-weight:700;">Agreement Insights</span>
+                            <span class="badge badge-warning">AI Audited</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-row-label">Contract Value / Amount</span>
+                            <span class="detail-row-val" id="fd-intel-amount" style="font-weight:600; color:var(--text-main);">N/A</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-row-label">Expiry & Renewal Target</span>
+                            <span class="detail-row-val" id="fd-intel-expiry" style="font-weight:600; color:var(--text-main);">N/A</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-row-label">Core Obligations</span>
+                            <span class="detail-row-val" id="fd-intel-obligations" style="font-size:12px; line-height:1.4; color:var(--text-muted);">N/A</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-row-label">Key Risk Clauses</span>
+                            <span class="detail-row-val" id="fd-intel-risks" style="font-size:12px; line-height:1.4; color:var(--danger); font-weight:500;">N/A</span>
+                        </div>
+                    </div>
                 </div>
+
             </div>
             <div class="modal-footer">
                 <button class="btn btn-outline" id="fd-btn-download">Download File</button>

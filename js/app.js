@@ -5,9 +5,10 @@ const INITIAL_DATA = {
     workspace: "acme",
     currentRole: "Founder",
     theme: "dark",
-    storageLimitMB: 2048,
+    storageLimitMB: 102400,
     storageUsedMB: 450,
-    activeSubscription: "Starter",
+    activeSubscription: "Professional",
+
     
     users: [
         { id: "u1", name: "Aditya Sharma", role: "Founder", email: "aditya@acme.com", folderAccess: "All Folders" },

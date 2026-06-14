@@ -119,11 +119,29 @@ document.addEventListener("DOMContentLoaded", () => {
         csvBtn.addEventListener("click", () => {
             showToast("Generating CSV dataset report...", "info");
             setTimeout(() => {
+                let csvContent = "Timestamp,User,Action,Details,IP Address\n";
+                BVState.auditLogs.forEach(log => {
+                    const row = `"${log.timestamp}","${log.user}","${log.action}","${log.document.replace(/"/g, '""')}","${log.ip}"`;
+                    csvContent += row + "\n";
+                });
+                
+                const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement("a");
+                link.setAttribute("href", url);
+                link.setAttribute("download", `businessvault_audit_trail_${Date.now()}.csv`);
+                link.style.visibility = 'hidden';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
                 showToast("Audit Logs report downloaded successfully (CSV format)!", "success");
                 addAuditLog("EXPORT", "Exported CSV compliance log index", "Audit System");
+                renderAudit();
             }, 800);
         });
     }
+
     
     if (pdfBtn) {
         pdfBtn.addEventListener("click", () => {

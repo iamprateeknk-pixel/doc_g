@@ -296,3 +296,12 @@
     color: var(--text-main);
     font-weight: 500;
 }
+
+/* Professional Large Inspector Card */
+.modal-card.large {
+    max-width: 900px !important;
+}
+.file-detail-grid.large-grid {
+    grid-template-columns: 1fr 1.2fr 1.2fr !important;
+}
+

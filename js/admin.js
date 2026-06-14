@@ -134,6 +134,18 @@ function renderTeamMembersList() {
             actionBtn = `<span style="font-size:11px; color:var(--text-subtle); font-weight:600;">System Administrator</span>`;
         }
         
+        let accessCell = "";
+        if (u.role === "Founder") {
+            accessCell = `<span style="font-size:12px; color:var(--success); font-weight:600;">All Folders (Admin)</span>`;
+        } else {
+            accessCell = `
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <span style="font-size:12px; color:var(--text-muted); font-weight:500;">${u.folderAccess}</span>
+                    <span style="cursor:pointer; color:var(--primary); font-size:11px;" onclick="editUserFolderAccess('${u.id}')" title="Edit Access Boundaries">✏️</span>
+                </div>
+            `;
+        }
+        
         tr.innerHTML = `
             <td>
                 <div style="font-weight:600; color:var(--text-main);">${u.name}</div>
@@ -142,12 +154,32 @@ function renderTeamMembersList() {
                 <span class="badge badge-info" style="font-size:9px;">${u.role}</span>
             </td>
             <td><span style="font-size:13px; font-family:monospace; color:var(--text-muted);">${u.email}</span></td>
-            <td><span style="font-size:12px; color:var(--text-muted); font-weight:500;">${u.folderAccess}</span></td>
+            <td>${accessCell}</td>
             <td>${actionBtn}</td>
         `;
         tbody.appendChild(tr);
     });
 }
+
+// Edit granular access scopes
+function editUserFolderAccess(id) {
+    if (BVState.currentRole === "Auditor") {
+        showToast("Auditor has read-only access.", "danger");
+        return;
+    }
+    const user = BVState.users.find(u => u.id === id);
+    if (!user) return;
+    
+    const newAccess = prompt(`Configure folder permissions boundaries for ${user.name} (comma separated folders, e.g. GST, ROC, Agreements):`, user.folderAccess);
+    if (newAccess !== null) {
+        user.folderAccess = newAccess.trim() || "None";
+        saveState();
+        renderTeamMembersList();
+        showToast(`Access restrictions updated for ${user.name}`, "success");
+        addAuditLog("ADMIN_CONFIG", `Updated folder boundaries to: "${user.folderAccess}" for ${user.name}`, "User Directory");
+    }
+}
+
 
 // Create new team member
 function createNewTeamMember() {
@@ -234,19 +266,16 @@ function renderSharing() {
     BVState.sharedLinks.forEach(link => {
         const tr = document.createElement("tr");
         
-        // Restriction badge type
-        let badgeClass = "badge-info";
-        let label = link.restriction.toUpperCase();
-        if (link.restriction === "readonly") {
-            badgeClass = "badge-success";
-            label = "READ ONLY";
-        } else if (link.restriction.includes("watermark")) {
-            badgeClass = "badge-warning";
-            label = "CONFIDENTIAL WATERMARK";
-        } else if (link.restriction.includes("otp")) {
-            badgeClass = "badge-danger";
-            label = "OTP SECURITY LOCK";
-        }
+        // Restriction select box for live editing permissions
+        const restrictionSelect = `
+            <select class="form-select" onchange="updateLinkRestriction('${link.id}', this.value)" style="padding: 4px; font-size:11px; width:auto; height:28px;">
+                <option value="readonly" ${link.restriction === 'readonly' ? 'selected' : ''}>Read Only</option>
+                <option value="watermark" ${link.restriction === 'watermark' ? 'selected' : ''}>Watermarked</option>
+                <option value="otp" ${link.restriction === 'otp' ? 'selected' : ''}>OTP Locked</option>
+            </select>
+        `;
+        
+        const logId = `sharing-logs-${link.id}`;
         
         tr.innerHTML = `
             <td>
@@ -259,18 +288,78 @@ function renderSharing() {
                 <span style="font-size:12px; font-weight:600;">${link.expiry}</span>
             </td>
             <td>
-                <span class="badge ${badgeClass}" style="font-size:9px;">${label}</span>
+                ${restrictionSelect}
             </td>
             <td>
-                <span class="badge badge-outline" style="border-color:var(--border-color); color:var(--text-muted); font-size:11px;">${link.count} hits</span>
+                <span style="font-size:12px; font-weight:600; color:var(--primary); cursor:pointer; text-decoration:underline;" onclick="toggleSharingLogs('${logId}')">
+                    ${link.count} hits (View Logs)
+                </span>
             </td>
             <td>
-                <button class="btn btn-secondary btn-sm" onclick="revokeShareLink('${link.id}')" style="padding:4px 8px; font-size:11px;">Revoke Link</button>
+                <button class="btn btn-secondary btn-sm" onclick="revokeShareLink('${link.id}')" style="padding:4px 8px; font-size:11px;">Revoke</button>
             </td>
         `;
         tbody.appendChild(tr);
+        
+        // Collapsible Row
+        const trLog = document.createElement("tr");
+        trLog.id = logId;
+        trLog.style.display = "none";
+        
+        // Mock visitor records
+        let rowsHtml = "";
+        if (link.count > 0) {
+            for (let i = 0; i < link.count; i++) {
+                const minOffset = (i + 1) * 4;
+                rowsHtml += `
+                    <div style="font-size:11px; color:var(--text-muted); display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px solid var(--border-color)">
+                        <span>Opened: ${minOffset} hrs ago</span>
+                        <span>IP: 192.168.1.${Math.floor(100 + Math.random() * 99)}</span>
+                        <span>Device: Chrome (Windows)</span>
+                        <span style="color:var(--success)">Spent: ${Math.floor(1 + Math.random() * 8)} mins</span>
+                    </div>
+                `;
+            }
+        } else {
+            rowsHtml = `<div style="font-size:11px; color:var(--text-subtle); text-align:center;">No visitor traffic logged yet.</div>`;
+        }
+        
+        trLog.innerHTML = `
+            <td colspan="6" style="background-color: var(--surface-hover); padding: 12px 20px;">
+                <div style="border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 12px; background-color: var(--surface)">
+                    <div style="font-weight:700; font-size:11px; text-transform:uppercase; color:var(--text-subtle); margin-bottom:8px;">Visitor Traffic Trail</div>
+                    ${rowsHtml}
+                </div>
+            </td>
+        `;
+        tbody.appendChild(trLog);
     });
 }
+
+// Live update restriction
+function updateLinkRestriction(id, value) {
+    if (BVState.currentRole === "Auditor") {
+        showToast("Auditor has read-only access.", "danger");
+        renderSharing();
+        return;
+    }
+    const link = BVState.sharedLinks.find(l => l.id === id);
+    if (link) {
+        link.restriction = value;
+        saveState();
+        showToast("Shared link permissions updated!", "success");
+        addAuditLog("SHARE_EDIT", `Modified access permission level to ${value} for ${link.fileName}`, "Secure Sharing");
+    }
+}
+
+// Toggle detail logs
+function toggleSharingLogs(id) {
+    const el = document.getElementById(id);
+    if (el) {
+        el.style.display = el.style.display === "none" ? "table-row" : "none";
+    }
+}
+
 
 // Revoke outbound access link
 function revokeShareLink(id) {

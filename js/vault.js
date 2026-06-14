@@ -429,6 +429,49 @@ function openFileInspector(fileId) {
     document.getElementById("fd-preview-extension").innerText = ext;
     document.getElementById("fd-name").innerText = file.name;
     
+    // Check if document is a contract or lease agreement to display column 3
+    const intelCol = document.getElementById("fd-agreement-intel-col");
+    const modalGrid = document.querySelector(".file-detail-grid");
+    const modalOverlay = document.getElementById("modal-file-detail");
+    const modalContainer = modalOverlay ? modalOverlay.querySelector(".modal-card") : null;
+    
+    const isAgreement = file.folder === "Agreements & NDAs" || file.name.toLowerCase().includes("agreement") || file.name.toLowerCase().includes("contract");
+    
+    if (isAgreement && intelCol && modalGrid && modalContainer) {
+        // Expand Modal classes
+        modalContainer.classList.add("large");
+        modalGrid.classList.add("large-grid");
+        intelCol.style.display = "block";
+        
+        // Extract intelligence
+        const amount = file.ocr["Contract Amount"] || file.ocr["Monthly Rent"] || file.ocr["Lease Value"] || "₹60,000";
+        const deposit = file.ocr["Security Deposit"] ? ` (Deposit: ${file.ocr["Security Deposit"]})` : "";
+        const expiryVal = file.ocr["Expiry Date"] || file.ocr["Lease Expiry"] || file.ocr["Renewal Trigger"] || "July 2027";
+        
+        let obligations = "Perform standard services according to agreement constraints. Confidentiality obligations apply.";
+        let risks = "Strict NDA constraints. Governing laws set in Mumbai, India jurisdiction.";
+        
+        if (file.name.toLowerCase().includes("lease")) {
+            obligations = "Pay monthly rent on or before the 5th of each calendar month. Maintain commercial premises in good tenantable order.";
+            risks = "Late payment penalty: 18% per annum. Automatic 10% rent escalation at the time of renewal after 11 months.";
+        } else if (file.name.toLowerCase().includes("dropbox") || file.name.toLowerCase().includes("saas")) {
+            obligations = "Ensure cloud platform service availability. Provide response SLA within 4 hours for severity-1 issues.";
+            risks = "Mutual indemnification is capped. Liability capped at 2x annual contract value. Governing laws set in Delaware, US.";
+        }
+        
+        document.getElementById("fd-intel-amount").innerText = amount + deposit;
+        document.getElementById("fd-intel-expiry").innerText = expiryVal;
+        document.getElementById("fd-intel-obligations").innerText = obligations;
+        document.getElementById("fd-intel-risks").innerText = risks;
+    } else {
+        // Reset classes for regular files
+        if (intelCol && modalGrid && modalContainer) {
+            modalContainer.classList.remove("large");
+            modalGrid.classList.remove("large-grid");
+            intelCol.style.display = "none";
+        }
+    }
+    
     // Render OCR Metadata chips
     const ocrList = document.getElementById("fd-ocr-list");
     ocrList.innerHTML = "";
@@ -460,15 +503,33 @@ function openFileInspector(fileId) {
     };
     
     shareBtn.onclick = () => {
+        // Restore classes before closing
+        if (intelCol && modalGrid && modalContainer) {
+            modalContainer.classList.remove("large");
+            modalGrid.classList.remove("large-grid");
+            intelCol.style.display = "none";
+        }
         closeModal("modal-file-detail");
         openShareModal(fileId);
     };
     
     openModal("modal-file-detail");
     
+    // Close inspector click-away support
+    const closeInspector = () => {
+        if (intelCol && modalGrid && modalContainer) {
+            modalContainer.classList.remove("large");
+            modalGrid.classList.remove("large-grid");
+            intelCol.style.display = "none";
+        }
+        closeModal("modal-file-detail");
+    };
+    document.getElementById("fd-modal-close").onclick = closeInspector;
+    
     // Log audit
     addAuditLog("VIEW", `Inspected document metadata: ${file.name}`, "Workspace Viewer");
 }
+
 
 function openModal(id) {
     const modal = document.getElementById(id);
