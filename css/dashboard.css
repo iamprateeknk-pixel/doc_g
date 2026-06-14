@@ -1,0 +1,297 @@
+/* Dashboard Grid Panels */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+@media (max-width: 1024px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Quick Action Cards */
+.quick-actions-bar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.action-card {
+    background-color: var(--surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    text-align: left;
+}
+
+.action-card:hover {
+    border-color: var(--primary);
+    background-color: var(--primary-glow);
+    transform: translateY(-2px);
+}
+
+.action-card-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-sm);
+    background-color: var(--surface-hover);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+}
+
+.action-card:hover .action-card-icon {
+    background-color: var(--primary);
+    color: white;
+}
+
+.action-card-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.action-card-desc {
+    font-size: 11px;
+    color: var(--text-subtle);
+    line-height: 1.4;
+}
+
+/* Storage Card Widget */
+.storage-card {
+    background: linear-gradient(135deg, var(--surface) 0%, var(--bg-app) 100%);
+}
+
+.storage-progress-container {
+    margin: 16px 0;
+}
+
+.storage-bar-bg {
+    height: 8px;
+    background-color: var(--border-color);
+    border-radius: 99px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.storage-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    border-radius: 99px;
+    width: 35%; /* Updated dynamically */
+    transition: width var(--transition-slow);
+}
+
+.storage-details {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* Activity Feeds list */
+.activity-feed-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.activity-feed-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.activity-feed-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.activity-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--primary-glow);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.activity-body {
+    flex: 1;
+    font-size: 13px;
+}
+
+.activity-text {
+    color: var(--text-main);
+    line-height: 1.4;
+}
+
+.activity-text strong {
+    font-weight: 600;
+}
+
+.activity-time {
+    display: block;
+    font-size: 11px;
+    color: var(--text-subtle);
+    margin-top: 4px;
+}
+
+/* Compliance Snapshot Widget */
+.compliance-snapshot-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px;
+    background-color: var(--surface-hover);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    margin-bottom: 10px;
+    transition: all var(--transition-fast);
+}
+
+.compliance-snapshot-item:hover {
+    border-color: var(--border-focus);
+    transform: translateX(4px);
+}
+
+.compliance-snapshot-item:last-child {
+    margin-bottom: 0;
+}
+
+.snapshot-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.snapshot-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.snapshot-date {
+    font-size: 11px;
+    color: var(--text-subtle);
+}
+
+/* Recent Files Grid */
+.recent-files-table-wrapper {
+    margin-top: 16px;
+}
+
+.file-icon-text {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.file-type-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+.file-type-icon.pdf {
+    background-color: #fef2f2;
+    color: #ef4444;
+    border: 1px solid #fecaca;
+}
+
+.file-type-icon.xlsx {
+    background-color: #f0fdf4;
+    color: #15803d;
+    border: 1px solid #bbf7d0;
+}
+
+.file-type-icon.docx {
+    background-color: #eff6ff;
+    color: #1d4ed8;
+    border: 1px solid #bfdbfe;
+}
+
+.file-type-icon.img {
+    background-color: #faf5ff;
+    color: #7e22ce;
+    border: 1px solid #e9d5ff;
+}
+
+.file-name-main {
+    font-weight: 600;
+    color: var(--text-main);
+    cursor: pointer;
+}
+
+.file-name-main:hover {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+.file-meta-sub {
+    font-size: 11px;
+    color: var(--text-subtle);
+    margin-top: 2px;
+}
+
+/* Circular Progress Chart simulation */
+.compliance-score-ring {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.compliance-score-ring svg {
+    transform: rotate(-90deg);
+}
+
+.score-text-overlay {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.score-value {
+    font-family: 'Outfit', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--text-main);
+}
+
+.score-label {
+    font-size: 10px;
+    color: var(--text-subtle);
+    font-weight: 600;
+    text-transform: uppercase;
+}

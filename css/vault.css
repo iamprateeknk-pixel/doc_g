@@ -1,0 +1,298 @@
+/* Vault Core Layout */
+.vault-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 24px;
+    height: calc(100vh - 170px);
+}
+
+@media (max-width: 900px) {
+    .vault-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Folders Sidebar Panel */
+.vault-folders-panel {
+    background-color: var(--surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow-y: auto;
+}
+
+.vault-panel-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-subtle);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    padding-left: 8px;
+}
+
+.folder-tree-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    transition: all var(--transition-fast);
+}
+
+.folder-tree-item:hover {
+    background-color: var(--surface-hover);
+    color: var(--text-main);
+}
+
+.folder-tree-item.active {
+    background-color: var(--primary-glow);
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.folder-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.folder-icon {
+    width: 18px;
+    height: 18px;
+    color: #eab308; /* Amber yellow folder */
+}
+
+.folder-tree-item.active .folder-icon {
+    color: var(--primary);
+}
+
+.folder-count {
+    font-size: 11px;
+    background-color: var(--surface-hover);
+    color: var(--text-subtle);
+    padding: 2px 6px;
+    border-radius: 99px;
+    border: 1px solid var(--border-color);
+}
+
+/* Vault Main Files Grid */
+.vault-main-area {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+}
+
+.vault-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.search-bar-wrapper {
+    position: relative;
+    flex: 1;
+    max-width: 400px;
+}
+
+.search-bar-input {
+    width: 100%;
+    padding-left: 40px;
+}
+
+.search-bar-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    color: var(--text-subtle);
+    pointer-events: none;
+}
+
+/* Upload & Drag Drop Area */
+.drag-drop-zone {
+    border: 2px dashed var(--border-color);
+    border-radius: var(--radius-lg);
+    background-color: var(--surface);
+    padding: 32px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.drag-drop-zone:hover, .drag-drop-zone.active {
+    border-color: var(--primary);
+    background-color: var(--primary-glow);
+}
+
+.upload-icon-glow {
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background-color: var(--surface-hover);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+}
+
+.drag-drop-zone:hover .upload-icon-glow {
+    transform: scale(1.1);
+    background-color: var(--primary);
+    color: white;
+}
+
+.upload-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.upload-subtitle {
+    font-size: 12px;
+    color: var(--text-subtle);
+}
+
+/* File list tables modifications */
+.file-actions-btn-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.action-icon-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-color);
+    background-color: var(--surface);
+    color: var(--text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+}
+
+.action-icon-btn:hover {
+    background-color: var(--surface-hover);
+    color: var(--text-main);
+}
+
+.action-icon-btn.share:hover {
+    color: var(--info);
+    border-color: var(--info-border);
+    background-color: var(--info-bg);
+}
+
+.action-icon-btn.delete:hover {
+    color: var(--danger);
+    border-color: var(--danger-border);
+    background-color: var(--danger-bg);
+}
+
+/* Tags Filter list */
+.tag-pills-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.tag-pill {
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid var(--border-color);
+    border-radius: 99px;
+    background-color: var(--surface);
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.tag-pill:hover, .tag-pill.active {
+    background-color: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+/* File detail viewer modal styles */
+.file-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .file-detail-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.file-preview-placeholder {
+    aspect-ratio: 1 / 1.4;
+    background-color: var(--surface-hover);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-subtle);
+    gap: 12px;
+}
+
+.file-preview-placeholder svg {
+    width: 64px;
+    height: 64px;
+}
+
+.file-details-data {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.detail-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+.detail-row-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-subtle);
+    text-transform: uppercase;
+}
+
+.detail-row-val {
+    font-size: 13px;
+    color: var(--text-main);
+    font-weight: 500;
+}

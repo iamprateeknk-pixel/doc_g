@@ -1,0 +1,196 @@
+/* Compliance tracker grids */
+.compliance-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.compliance-status-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .compliance-status-summary {
+        grid-template-columns: 1fr;
+    }
+}
+
+.compliance-summary-card {
+    background-color: var(--surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: var(--shadow-sm);
+}
+
+.compliance-summary-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.compliance-summary-icon.overdue {
+    background-color: var(--danger-bg);
+    color: var(--danger);
+    border: 1px solid var(--danger-border);
+}
+
+.compliance-summary-icon.upcoming {
+    background-color: var(--warning-bg);
+    color: var(--warning);
+    border: 1px solid var(--warning-border);
+}
+
+.compliance-summary-icon.completed {
+    background-color: var(--success-bg);
+    color: var(--success);
+    border: 1px solid var(--success-border);
+}
+
+.compliance-summary-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.compliance-summary-count {
+    font-family: 'Outfit', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--text-main);
+}
+
+.compliance-summary-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+/* Compliance Timeline Table styling */
+.compliance-table-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 11px;
+}
+
+.compliance-table-avatar.gst {
+    background-color: #eff6ff;
+    color: #3b82f6;
+    border: 1px solid #bfdbfe;
+}
+
+.compliance-table-avatar.roc {
+    background-color: #faf5ff;
+    color: #a855f7;
+    border: 1px solid #e9d5ff;
+}
+
+.compliance-table-avatar.it {
+    background-color: #f0fdf4;
+    color: #22c55e;
+    border: 1px solid #bbf7d0;
+}
+
+.compliance-table-avatar.lic {
+    background-color: #fffbeb;
+    color: #d97706;
+    border: 1px solid #fde68a;
+}
+
+/* Calendar widget layout */
+.compliance-calendar-widget {
+    background-color: var(--surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-month-year {
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    text-align: center;
+}
+
+.calendar-day-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-subtle);
+    text-transform: uppercase;
+    padding-bottom: 8px;
+}
+
+.calendar-cell {
+    aspect-ratio: 1;
+    border-radius: var(--radius-sm);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.calendar-cell:hover {
+    background-color: var(--surface-hover);
+    color: var(--text-main);
+}
+
+.calendar-cell.active-month {
+    color: var(--text-main);
+}
+
+.calendar-cell.today {
+    border-color: var(--primary);
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.calendar-cell.has-compliance-danger {
+    background-color: var(--danger-bg);
+    color: var(--danger);
+    font-weight: 600;
+}
+
+.calendar-cell.has-compliance-warning {
+    background-color: var(--warning-bg);
+    color: var(--warning);
+    font-weight: 600;
+}
+
+.calendar-cell.has-compliance-success {
+    background-color: var(--success-bg);
+    color: var(--success);
+    font-weight: 600;
+}

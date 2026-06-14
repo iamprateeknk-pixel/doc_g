@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BusinessVault AI - Secure Document Intelligence & Compliance Platform</title>
+    <meta name="description" content="Secure Business Document Management, Compliance, Collaboration, and Intelligence Platform.">
+    
+    <!-- Custom Style Sheets -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/vault.css">
+    <link rel="stylesheet" href="css/ai.css">
+    <link rel="stylesheet" href="css/compliance.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="dark"> <!-- Defaulting to Dark Mode for premium aesthetic -->
+
+    <div class="app-container">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="app-sidebar">
+            <div class="sidebar-brand">
+                <div class="brand-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                    </svg>
+                </div>
+                <span class="brand-name">BusinessVault AI</span>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="#dashboard" class="nav-item active" id="nav-dashboard">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+                
+                <a href="#vault" class="nav-item" id="nav-vault">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-19.5 0A2.25 2.25 0 004.5 15h15a2.25 2.25 0 002.25-2.25m-19.5 0v.158c0 .671.314 1.306.84 1.71l.83.637a4.5 4.5 0 002.696.89h8.264c.99 0 1.958-.32 2.748-.91l.812-.605c.351-.262.556-.677.556-1.117v-.18" />
+                    </svg>
+                    <span>Document Vault</span>
+                </a>
+                
+                <a href="#compliance" class="nav-item" id="nav-compliance">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
+                    </svg>
+                    <span>Compliance Center</span>
+                </a>
+                
+                <a href="#ai" class="nav-item" id="nav-ai">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 21l8.904-4.473L21 21l-1.187-5.096A9.75 9.75 0 109.813 15.904z" />
+                    </svg>
+                    <span>AI Assistant</span>
+                </a>
+                
+                <a href="#sharing" class="nav-item" id="nav-sharing">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" />
+                    </svg>
+                    <span>Secure Sharing</span>
+                </a>
+                
+                <a href="#audit" class="nav-item" id="nav-audit">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-16.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-16.25v14.25" />
+                    </svg>
+                    <span>Audit Trail</span>
+                </a>
+                
+                <a href="#admin" class="nav-item" id="nav-admin">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.43l-1.003.828c-.293.241-.438.613-.43.992a7.723 7.723 0 010 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.43l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.991l-1.004-.827a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.645-.869l.214-1.28z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    <span>Admin Settings</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-profile-widget" id="user-profile-toggle">
+                    <div class="user-avatar" id="sidebar-user-avatar">FO</div>
+                    <div class="user-info">
+                        <div class="user-name" id="sidebar-user-name">Aditya Sharma</div>
+                        <div class="user-role" id="sidebar-user-role">Founder</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        
+        <!-- Header Panel -->
+        <header class="app-header">
+            <div class="header-left">
+                <!-- Workspace Switcher -->
+                <div class="workspace-select-wrapper">
+                    <select class="workspace-select" id="workspace-selector">
+                        <option value="acme">Acme Corp Ltd</option>
+                        <option value="personal">My DigiLocker</option>
+                        <option value="client-a">Apex Global CA Client</option>
+                        <option value="legal-case">Sharma Partners Cases</option>
+                    </select>
+                    <svg class="workspace-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </div>
+                
+                <!-- Active Demo Role Badge/Selector -->
+                <span class="role-badge-pill">Role Sandbox:</span>
+                <div class="workspace-select-wrapper">
+                    <select class="workspace-select" id="role-sandbox-selector" style="padding: 6px 32px 6px 12px; font-size:12px;">
+                        <option value="Founder">Founder (Full Access)</option>
+                        <option value="Individual">Individual (Personal Docs)</option>
+                        <option value="CA">Chartered Accountant (Client Files)</option>
+                        <option value="Lawyer">Lawyer (Contracts & cases)</option>
+                        <option value="Auditor">Auditor (Read-Only Logs)</option>
+                        <option value="Employee">Employee (Internal Docs)</option>
+                    </select>
+                    <svg class="workspace-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="header-right">
+                <!-- Dark / Light Theme Toggle -->
+                <button class="icon-btn" id="theme-toggle-btn" title="Toggle Theme">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" id="theme-icon-moon">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" id="theme-icon-sun" style="display:none;">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m0 13.5V21m9.75-9h-2.25m-13.5 0H3m2.25 9.75l1.5-1.5m10.5-10.5l1.5-1.5m0 10.5l-1.5-1.5m-10.5-10.5l-1.5-1.5M12 7.5a4.5 4.5 0 110 9 4.5 4.5 0 010-9z" />
+                    </svg>
+                </button>
+                
+                <!-- Notification Bell -->
+                <button class="icon-btn" id="notification-bell-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+                    </svg>
+                    <span class="badge-dot" id="unread-notifications-dot"></span>
+                </button>
+                
+                <!-- Mini Notification Popover -->
+                <div class="card" id="notification-popover" style="position: absolute; top: 75px; right: 32px; width: 320px; z-index: 1000; display: none;">
+                    <div class="card-header" style="padding:12px 16px;">
+                        <span class="card-title" style="font-size:14px;">Recent Alerts</span>
+                        <button class="close-btn" id="close-notifications-btn" style="width:20px; height:20px;">×</button>
+                    </div>
+                    <div class="card-body" id="notification-list-body" style="padding: 12px; max-height:280px; overflow-y:auto; display:flex; flex-direction:column; gap:8px;">
+                        <!-- Injected programmatically -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Main Application Viewport -->
+        <main class="app-main">
+            
+            <!-- VIEW: DASHBOARD -->
+            <section class="page-view active" id="view-dashboard">
+                <div class="flex-between">
+                    <div>
+                        <h1 class="page-title">Workspace Intelligence</h1>
+                        <p class="page-subtitle" id="dashboard-subtitle">Acme Corp Ltd overview & critical documents health.</p>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary" onclick="appRoute('vault')">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width:16px; height:16px;"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+                            Upload Document
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Metrix Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-content">
+                            <span class="stat-label">Total Documents</span>
+                            <span class="stat-value" id="stat-total-docs">12</span>
+                            <span class="stat-trend up">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width:12px; height:12px;"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" /></svg>
+                                2 uploaded today
+                            </span>
+                        </div>
+                        <div class="stat-icon-wrapper">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"/></svg>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card success">
+                        <div class="stat-content">
+                            <span class="stat-label">Compliance Score</span>
+                            <span class="stat-value" id="stat-compliance-score">92%</span>
+                            <span class="stat-trend up">Excellent standing</span>
+                        </div>
+                        <div class="stat-icon-wrapper">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0110 21a3.745 3.745 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.748 3.748 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0114 3a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.748 3.748 0 0121 12z"/></svg>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card warning">
+                        <div class="stat-content">
+                            <span class="stat-label">Pending Filings</span>
+                            <span class="stat-value" id="stat-pending-filings">3</span>
+                            <span class="stat-trend down" id="stat-overdue-alert">1 filing overdue!</span>
+                        </div>
+                        <div class="stat-icon-wrapper">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/></svg>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card accent storage-card">
+                        <div class="stat-content" style="width:100%;">
+                            <span class="stat-label">Cloud Space (2 GB Free)</span>
+                            <div class="storage-progress-container">
+                                <div class="storage-bar-bg">
+                                    <div class="storage-bar-fill" id="dashboard-storage-progress" style="width: 22%"></div>
+                                </div>
+                                <div class="storage-details">
+                                    <span id="dashboard-storage-desc">440 MB used</span>
+                                    <span>2.0 GB Limit</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Main Dashboard Grid -->
+                <div class="dashboard-grid">
+                    <!-- Left Section: Recent Documents & Actions -->
+                    <div style="display:flex; flex-direction:column; gap:24px;">
+                        
+                        <!-- Quick Actions Grid -->
+                        <div class="quick-actions-bar">
+                            <div class="action-card" onclick="appRoute('ai')">
+                                <div class="action-card-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px; height:18px;"><path d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75"/></svg>
+                                </div>
+                                <span class="action-card-title">Ask AI Assistant</span>
+                                <span class="action-card-desc">Search details or ask "When does my FSSAI expire?"</span>
+                            </div>
+                            <div class="action-card" onclick="appRoute('compliance')">
+                                <div class="action-card-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px; height:18px;"><path d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                </div>
+                                <span class="action-card-title">Compliance Alert</span>
+                                <span class="action-card-desc">Check upcoming deadlines for GST, TDS & ROC.</span>
+                            </div>
+                            <div class="action-card" onclick="appRoute('vault')">
+                                <div class="action-card-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:18px; height:18px;"><path d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                                </div>
+                                <span class="action-card-title">Add Folder</span>
+                                <span class="action-card-desc">Organize contracts, filings, bank, and employee files.</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Recent Activity / Documents Table -->
+                        <div class="card">
+                            <div class="card-header">
+                                <span class="card-title">Recent Document Ingestion</span>
+                                <button class="btn btn-secondary btn-sm" onclick="appRoute('vault')">View Vault</button>
+                            </div>
+                            <div class="card-body" style="padding:0;">
+                                <div class="custom-table-container" style="border:none; box-shadow:none; border-radius:0;">
+                                    <table class="custom-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Document Name</th>
+                                                <th>Category</th>
+                                                <th>Updated By</th>
+                                                <th>Ingested At</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="dashboard-recent-files-body">
+                                            <!-- Dynamically filled -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Section: Activities & Compliance Snapshot -->
+                    <div style="display:flex; flex-direction:column; gap:24px;">
+                        
+                        <!-- Compliance Score circle widget -->
+                        <div class="card">
+                            <div class="card-header">
+                                <span class="card-title">Health Matrix</span>
+                            </div>
+                            <div class="card-body" style="text-align:center;">
+                                <div class="compliance-score-ring">
+                                    <svg width="120" height="120">
+                                        <circle cx="60" cy="60" r="50" fill="transparent" stroke="var(--border-color)" stroke-width="8"></circle>
+                                        <circle cx="60" cy="60" r="50" fill="transparent" stroke="var(--primary)" stroke-width="8" stroke-dasharray="314.15" stroke-dashoffset="25" id="score-ring-progress" style="transition: stroke-dashoffset 1s ease;"></circle>
+                                    </svg>
+                                    <div class="score-text-overlay">
+                                        <span class="score-value" id="health-percentage-lbl">92%</span>
+                                        <span class="score-label">Filing score</span>
+                                    </div>
+                                </div>
+                                <p style="font-size:12px; color:var(--text-muted); margin-top:16px; line-height:1.4;">
+                                    Calculated based on active filings, contract renewal timings, and security parameters.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Compliance snapshot notices -->
+                        <div class="card">
+                            <div class="card-header">
+                                <span class="card-title">Pending Reminders</span>
+                                <span class="badge badge-warning" id="dashboard-reminders-badge">3 Alert</span>
+                            </div>
+                            <div class="card-body" id="dashboard-compliance-snapshot-body">
+                                <!-- Prepopulated -->
+                            </div>
+                        </div>
+                        
+                        <!-- Audit activity logger panel -->
+                        <div class="card">
+                            <div class="card-header">
+                                <span class="card-title">Real-time Activity Logs</span>
+                                <span class="badge badge-info">Live</span>
+                            </div>
+                            <div class="card-body" style="max-height: 280px; overflow-y: auto;">
+                                <div class="activity-feed-list" id="dashboard-activity-feed-list">
+                                    <!-- Populated dynamically -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- VIEW: VAULT -->
+            <section class="page-view" id="view-vault">
+                <div class="flex-between" style="margin-bottom:12px;">
+                    <div>
+                        <h1 class="page-title">Business DigiLocker</h1>
+                        <p class="page-subtitle">Secure encrypted asset locker with OCR extraction metadata indexes.</p>
+                    </div>
+                    <div style="display:flex; gap:8px;">
+                        <button class="btn btn-outline" id="vault-btn-new-folder">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width:16px; height:16px;"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10.5v6m3-3H9m4.06-7.19l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" /></svg>
+                            New Folder
+                        </button>
+                        <button class="btn btn-primary" id="vault-btn-upload-file">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width:16px; height:16px;"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" /></svg>
+                            Upload File
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="vault-layout">
+                    <!-- Folders navigation pane -->
+                    <div class="vault-folders-panel">
+                        <span class="vault-panel-title">Folders List</span>
+                        <div id="vault-folder-tree-list" style="display:flex; flex-direction:column; gap:4px;">
+                            <!-- Injected -->
+                        </div>
+                    </div>
+                    
+                    <!-- Main vault items panel -->
+                    <div class="vault-main-area">
+                        <!-- Toolbar and filters -->
+                        <div class="vault-toolbar">
+                            <div class="search-bar-wrapper">
+                                <svg class="search-bar-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                </svg>
+                                <input type="text" class="form-input search-bar-input" id="vault-search-input" placeholder="Search files by tags, metadata, or name...">
+                            </div>
+                            
+                            <!-- Filter by tags row -->
+                            <div class="tag-pills-row" id="vault-tag-filters-row">
+                                <span style="font-size:12px; color:var(--text-subtle); font-weight:600;">Tags:</span>
+                                <span class="tag-pill active" data-tag="All">All</span>
+                                <!-- Injected -->
+                            </div>
+                        </div>
+                        
+                        <!-- Drag and drop zone -->
+                        <div class="drag-drop-zone" id="vault-drag-drop-zone">
+                            <div class="upload-icon-glow">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width:28px; height:28px;"><path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" /></svg>
+                            </div>
+                            <span class="upload-title">Click to select or drag and drop your document here</span>
+                            <span class="upload-subtitle">Simulates automated OCR processing, indexing, and compliance scanning (PDF, XLSX, DOCX, PNG)</span>
+                            <input type="file" id="vault-hidden-file-input" style="display:none;" multiple>
+                        </div>
+                        
+                        <!-- Files Grid/List table -->
+                        <div class="card" style="flex: 1; overflow-y: auto;">
+                            <div class="card-header" style="padding: 12px 20px;">
+                                <span class="card-title" id="vault-current-breadcrumbs">Vault / All Documents</span>
+                            </div>
+                            <div class="card-body" style="padding:0;">
+                                <div class="custom-table-container" style="border:none; box-shadow:none; border-radius:0;">
+                                    <table class="custom-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Size</th>
+                                                <th>Tags</th>
+                                                <th>Created</th>
+                                                <th>Permissions</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="vault-files-list-body">
+                                            <!-- Dynamic items -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- VIEW: COMPLIANCE -->
+            <section class="page-view" id="view-compliance">
+                <div class="flex-between">
+                    <div>
+                        <h1 class="page-title">Compliance Management System</h1>
+                        <p class="page-subtitle">Auto-detected expiry dates, tax return calendars, and certificate updates.</p>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary" id="btn-add-compliance">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width:16px; height:16px;"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+                            Add Calendar Event
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="compliance-layout">
+                    <!-- Status overview cards -->
+                    <div class="compliance-status-summary">
+                        <div class="compliance-summary-card">
+                            <div class="compliance-summary-icon overdue">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px; height:20px;"><path d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"/></svg>
+                            </div>
+                            <div class="compliance-summary-info">
+                                <span class="compliance-summary-count" id="compliance-cnt-overdue" style="color:var(--danger)">1</span>
+                                <span class="compliance-summary-label">Overdue Tasks</span>
+                            </div>
+                        </div>
+                        
+                        <div class="compliance-summary-card">
+                            <div class="compliance-summary-icon upcoming">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px; height:20px;"><path d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            </div>
+                            <div class="compliance-summary-info">
+                                <span class="compliance-summary-count" id="compliance-cnt-upcoming" style="color:var(--warning)">2</span>
+                                <span class="compliance-summary-label">Due within 30 days</span>
+                            </div>
+                        </div>
+                        
+                        <div class="compliance-summary-card">
+                            <div class="compliance-summary-icon completed">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px; height:20px;"><path d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0110 21a3.745 3.745 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.748 3.748 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0114 3a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.748 3.748 0 0121 12z"/></svg>
+                            </div>
+                            <div class="compliance-summary-info">
+                                <span class="compliance-summary-count" id="compliance-cnt-filed" style="color:var(--success)">8</span>
+                                <span class="compliance-summary-label">Completed this year</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Split grid layout: Calendar + Timeline Table -->
+                    <div style="display:grid; grid-template-columns: 1.2fr 1fr; gap:24px;">
+                        
+                        <!-- Timeline list table -->
+                        <div class="card">
+                            <div class="card-header">
+                                <span class="card-title">Regulatory Compliance Schedule</span>
+                                <div style="display:flex; gap:8px;">
+                                    <select class="form-select" id="compliance-filter-status" style="padding:4px 10px; font-size:12px; width:auto; height:32px;">
+                                        <option value="All">All Statuses</option>
+                                        <option value="Overdue">Overdue</option>
+                                        <option value="Upcoming">Upcoming</option>
+                                        <option value="Filed">Completed</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="card-body" style="padding:0; overflow-y:auto; max-height:450px;">
+                                <div class="custom-table-container" style="border:none; box-shadow:none; border-radius:0;">
+                                    <table class="custom-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Filing Title</th>
+                                                <th>Due Date</th>
+                                                <th>Type</th>
+                                                <th>Status</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="compliance-timeline-tbody">
+                                            <!-- Dynamically generated schedule items -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Calendar Widget -->
+                        <div class="compliance-calendar-widget">
+                            <div class="calendar-header">
+                                <span class="calendar-month-year" id="compliance-calendar-month-lbl">June 2026</span>
+                                <div style="display:flex; gap:4px;">
+                                    <button class="btn btn-secondary btn-sm" id="cal-prev-month">◀</button>
+                                    <button class="btn btn-secondary btn-sm" id="cal-next-month">▶</button>
+                                </div>
+                            </div>
+                            
+                            <div class="calendar-grid">
+                                <div class="calendar-day-label">S</div>
+                                <div class="calendar-day-label">M</div>
+                                <div class="calendar-day-label">T</div>
+                                <div class="calendar-day-label">W</div>
+                                <div class="calendar-day-label">T</div>
+                                <div class="calendar-day-label">F</div>
+                                <div class="calendar-day-label">S</div>
+                                <!-- Calendar days injected -->
+                            </div>
+                            <div style="margin-top:20px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+                                <span style="font-size:11px; display:flex; align-items:center; gap:6px;"><span style="width:8px; height:8px; border-radius:50%; background-color:var(--danger); display:inline-block;"></span> Overdue</span>
+                                <span style="font-size:11px; display:flex; align-items:center; gap:6px;"><span style="width:8px; height:8px; border-radius:50%; background-color:var(--warning); display:inline-block;"></span> Upcoming</span>
+                                <span style="font-size:11px; display:flex; align-items:center; gap:6px;"><span style="width:8px; height:8px; border-radius:50%; background-color:var(--success); display:inline-block;"></span> Completed</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- VIEW: AI ASSISTANT -->
+            <section class="page-view" id="view-ai">
+                <div style="margin-bottom:12px;">
+                    <h1 class="page-title">AI Document Intelligence & Chat</h1>
+                    <p class="page-subtitle">Explain agreements, extract compliance periods, and search locker parameters via natural language.</p>
+                </div>
+                
+                <div class="ai-layout">
+                    <!-- Chat window -->
+                    <div class="ai-chat-window">
+                        <div class="ai-chat-header">
+                            <div class="ai-avatar-glow">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 00-6-6m12 6a6 6 0 01-6-6m0 0a6 6 0 00-6-6m6 6a6 6 0 016-6" />
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="ai-header-title">Assistant Bot</div>
+                                <div class="ai-header-status">Online and Ready</div>
+                            </div>
+                        </div>
+                        
+                        <div class="ai-messages-scroll" id="ai-messages-scroll-area">
+                            <!-- Populated with starting chat bubbles -->
+                        </div>
+                        
+                        <div class="ai-chat-input-bar">
+                            <div class="chat-input-container">
+                                <input type="text" class="chat-input-box" id="ai-chat-input" placeholder="Ask questions (e.g. 'Show GST Certificate', 'When does FSSAI expire?')...">
+                                <button class="chat-submit-btn" id="ai-chat-send-btn">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Side Helper: suggested prompts and active document contexts -->
+                    <div class="ai-sidebar-panel">
+                        <div class="card">
+                            <div class="card-header">
+                                <span class="card-title">Prompt Templates</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="suggested-prompts-grid" id="ai-suggested-prompts-grid">
+                                    <!-- Injected -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- OCR Extracted contextual helper details -->
+                        <div class="ocr-metadata-card" id="ai-ocr-card-details">
+                            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 8px;">
+                                <span class="detail-row-label">Latest Inspected Context</span>
+                                <span class="badge badge-success">OCR Scanned</span>
+                            </div>
+                            <h3 class="card-title" id="ai-inspected-doc-title" style="margin-bottom:12px; font-size:15px; color:var(--primary)">No document selected</h3>
+                            <div class="ocr-chip-list" id="ai-ocr-list-holder">
+                                <div style="text-align:center; color:var(--text-subtle); font-size:12px; padding:16px;">
+                                    Click on a document name in the Recent list or Vault table to load its context for AI chat.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- VIEW: SECURE SHARING -->
+            <section class="page-view" id="view-sharing">
+                <div class="flex-between">
+                    <div>
+                        <h1 class="page-title">Secure Share Management</h1>
+                        <p class="page-subtitle">Track outbound document access parameters, link verification OTP logs, and watermarks.</p>
+                    </div>
+                </div>
+                
+                <div class="card" style="margin-top: 24px;">
+                    <div class="card-header">
+                        <span class="card-title">Active Outbound Secure Links</span>
+                        <span class="badge badge-info" id="share-links-count-badge">2 Active Links</span>
+                    </div>
+                    <div class="card-body" style="padding:0;">
+                        <div class="custom-table-container" style="border:none; box-shadow:none; border-radius:0;">
+                            <table class="custom-table">
+                                <thead>
+                                    <tr>
+                                        <th>Document Name</th>
+                                        <th>Shared Target</th>
+                                        <th>Expiry Date</th>
+                                        <th>Access Settings</th>
+                                        <th>Opened Counts</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="sharing-links-tbody">
+                                    <!-- Populated programmatically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- VIEW: AUDIT TRAIL -->
+            <section class="page-view" id="view-audit">
+                <div class="flex-between">
+                    <div>
+                        <h1 class="page-title">Compliance Audit Logs Center</h1>
+                        <p class="page-subtitle">Un-tamperable document history, download trackers, and sharing validation points.</p>
+                    </div>
+                    <div style="display:flex; gap:8px;">
+                        <button class="btn btn-outline" id="audit-btn-export-csv">Export CSV</button>
+                        <button class="btn btn-outline" id="audit-btn-export-pdf">Export PDF</button>
+                    </div>
+                </div>
+                
+                <!-- Filter bar -->
+                <div class="card" style="margin: 24px 0;">
+                    <div class="card-body" style="padding: 16px; display:flex; gap:16px; align-items:center; flex-wrap:wrap;">
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <span style="font-size:12px; font-weight:600; color:var(--text-muted)">User:</span>
+                            <select class="form-select" id="audit-filter-user" style="padding:6px; font-size:12px; width:150px;">
+                                <option value="All">All Users</option>
+                                <option value="Aditya Sharma">Aditya Sharma</option>
+                                <option value="Sanjay Mehta (CA)">Sanjay Mehta (CA)</option>
+                                <option value="Neha Gupta (Lawyer)">Neha Gupta (Lawyer)</option>
+                            </select>
+                        </div>
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <span style="font-size:12px; font-weight:600; color:var(--text-muted)">Action:</span>
+                            <select class="form-select" id="audit-filter-action" style="padding:6px; font-size:12px; width:150px;">
+                                <option value="All">All Actions</option>
+                                <option value="UPLOAD">UPLOAD</option>
+                                        <option value="VIEW">VIEW</option>
+                                <option value="DOWNLOAD">DOWNLOAD</option>
+                                <option value="SHARE">SHARE</option>
+                                <option value="REVOKE">REVOKE</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-secondary btn-sm" id="audit-btn-clear-filters">Reset Filters</button>
+                    </div>
+                </div>
+                
+                <!-- Audit list card -->
+                <div class="card">
+                    <div class="card-header" style="padding: 12px 20px;">
+                        <span class="card-title">System Operations Log</span>
+                        <span class="badge badge-success">GDPR / SOC2 Compliant Archive</span>
+                    </div>
+                    <div class="card-body" style="padding:0;">
+                        <div class="custom-table-container" style="border:none; box-shadow:none; border-radius:0;">
+                            <table class="custom-table">
+                                <thead>
+                                    <tr>
+                                        <th>Timestamp</th>
+                                        <th>Actor Profile</th>
+                                        <th>Operation Type</th>
+                                        <th>File Inspected</th>
+                                        <th>IP Address</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="audit-trail-tbody">
+                                    <!-- Log rows -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- VIEW: ADMIN PANEL -->
+            <section class="page-view" id="view-admin">
+                <div style="margin-bottom:24px;">
+                    <h1 class="page-title">Super Administration Suite</h1>
+                    <p class="page-subtitle">Manage company directories, storage constraints, user allocations, and pricing structures.</p>
+                </div>
+                
+                <div class="admin-layout">
+                    <!-- Nav tabs -->
+                    <div class="admin-nav-list">
+                        <span class="vault-panel-title">Admin Tabs</span>
+                        <div class="admin-nav-item active" data-tab="system-settings">System Configuration</div>
+                        <div class="admin-nav-item" data-tab="subscription-plans">SaaS Subscriptions</div>
+                        <div class="admin-nav-item" data-tab="user-mgmt">User Accounts CRUD</div>
+                    </div>
+                    
+                    <!-- Content sections container -->
+                    <div id="admin-subpanels-wrapper">
+                        
+                        <!-- Panel: System Configuration -->
+                        <div class="admin-subpanel" id="admin-panel-system-settings">
+                            <div class="settings-section-card">
+                                <h3 class="settings-section-title">Workspace Allocations & Storage</h3>
+                                <div class="settings-grid-2">
+                                    <div class="form-group">
+                                        <label class="form-label">Acme Corp Ltd Storage Limit (MB)</label>
+                                        <input type="number" class="form-input" id="admin-input-storage-limit" value="2048">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Global OCR Auto-Scannable files</label>
+                                        <select class="form-select" id="admin-select-ocr-scan">
+                                            <option value="enabled">Enabled (All Uploads)</option>
+                                            <option value="manual">Manual trigger</option>
+                                            <option value="disabled">Disabled</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group" style="margin-top:12px;">
+                                    <label class="form-label" style="display:flex; justify-content:space-between;">
+                                        <span>System Encryption Standard</span>
+                                        <span class="badge badge-success">ACTIVE</span>
+                                    </label>
+                                    <input type="text" class="form-input" value="AES-256 GCM (E2EE Client Encrypted & Cloud Vault Hash Key)" disabled style="background-color: var(--surface-hover);">
+                                </div>
+                                <button class="btn btn-primary" id="admin-save-system-settings" style="margin-top:12px;">Save Configurations</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Panel: Subscription Plans -->
+                        <div class="admin-subpanel" id="admin-panel-subscription-plans" style="display:none;">
+                            <div class="flex-between">
+                                <h3 class="card-title">Available Platform Tier Subscriptions</h3>
+                                <span class="badge badge-info" id="active-plan-badge">Active: Starter Tier</span>
+                            </div>
+                            <div class="pricing-grid">
+                                <div class="plan-card" data-plan="Free">
+                                    <div class="plan-name">Free Plan</div>
+                                    <div class="plan-price-row">
+                                        <span class="plan-price">₹0</span>
+                                        <span class="plan-period">/ month</span>
+                                    </div>
+                                    <div class="plan-features-list">
+                                        <div class="plan-feature-item">✔ 2 GB Secure Storage</div>
+                                        <div class="plan-feature-item">✔ Drag-and-Drop Ingestion</div>
+                                        <div class="plan-feature-item">✔ 1 User Profile Link</div>
+                                    </div>
+                                    <button class="btn btn-outline btn-sm select-plan-btn" data-plan="Free">Select Tier</button>
+                                </div>
+                                
+                                <div class="plan-card popular" data-plan="Starter">
+                                    <div class="popular-badge">POPULAR</div>
+                                    <div class="plan-name">Starter Plan</div>
+                                    <div class="plan-price-row">
+                                        <span class="plan-price">₹199</span>
+                                        <span class="plan-period">/ month</span>
+                                    </div>
+                                    <div class="plan-features-list">
+                                        <div class="plan-feature-item">✔ 20 GB Secure Storage</div>
+                                        <div class="plan-feature-item">✔ OCR Extraction (50 files/mo)</div>
+                                        <div class="plan-feature-item">✔ Team Links sharing (3 users)</div>
+                                    </div>
+                                    <button class="btn btn-primary btn-sm select-plan-btn" data-plan="Starter">Selected</button>
+                                </div>
+                                
+                                <div class="plan-card" data-plan="Professional">
+                                    <div class="plan-name">Professional</div>
+                                    <div class="plan-price-row">
+                                        <span class="plan-price">₹999</span>
+                                        <span class="plan-period">/ month</span>
+                                    </div>
+                                    <div class="plan-features-list">
+                                        <div class="plan-feature-item">✔ 100 GB Secure Storage</div>
+                                        <div class="plan-feature-item">✔ Full OCR Engine & AI chatbot</div>
+                                        <div class="plan-feature-item">✔ Collaboration & comments</div>
+                                    </div>
+                                    <button class="btn btn-outline btn-sm select-plan-btn" data-plan="Professional">Upgrade</button>
+                                </div>
+                                
+                                <div class="plan-card" data-plan="Business">
+                                    <div class="plan-name">Business</div>
+                                    <div class="plan-price-row">
+                                        <span class="plan-price">₹2999</span>
+                                        <span class="plan-period">/ month</span>
+                                    </div>
+                                    <div class="plan-features-list">
+                                        <div class="plan-feature-item">✔ 1 TB Dedicated Cloud S3</div>
+                                        <div class="plan-feature-item">✔ Expiry Calendars & API links</div>
+                                        <div class="plan-feature-item">✔ Auditor access trail accounts</div>
+                                    </div>
+                                    <button class="btn btn-outline btn-sm select-plan-btn" data-plan="Business">Upgrade</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Panel: User Accounts CRUD -->
+                        <div class="admin-subpanel" id="admin-panel-user-mgmt" style="display:none;">
+                            <div class="user-admin-header">
+                                <h3 class="card-title">Manage Team Profiles</h3>
+                                <button class="btn btn-primary btn-sm" id="admin-btn-add-user">Add Member</button>
+                            </div>
+                            
+                            <div class="custom-table-container">
+                                <table class="custom-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Profile Name</th>
+                                            <th>Designation / Role</th>
+                                            <th>Email Address</th>
+                                            <th>Assigned Folder Access</th>
+                                            <th>Action Controls</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="admin-users-tbody">
+                                        <!-- Dynamically generated rows -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </section>
+            
+        </main>
+    </div>
+    
+    <!-- Toast Indicator Popup Root -->
+    <div class="toast-container" id="toast-container-root"></div>
+
+    <!-- DIALOG: FILE DETAIL VIEW MODAL -->
+    <div class="modal-overlay" id="modal-file-detail">
+        <div class="modal-card">
+            <div class="modal-header">
+                <span class="modal-title" id="fd-modal-title">Document Inspector</span>
+                <button class="close-btn" id="fd-modal-close">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="file-detail-grid">
+                    <div class="file-preview-placeholder">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                        </svg>
+                        <span id="fd-preview-extension" style="font-weight:700; font-size:12px; text-transform:uppercase;">PDF</span>
+                    </div>
+                    
+                    <div class="file-details-data">
+                        <div class="detail-row">
+                            <span class="detail-row-label">Document Name</span>
+                            <span class="detail-row-val" id="fd-name">GST_Registration_Certificate.pdf</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-row-label">OCR Extracted Details</span>
+                            <div class="ocr-chip-list" id="fd-ocr-list" style="margin-top:6px;">
+                                <!-- Extracted values -->
+                            </div>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-row-label">Team Collaboration / Comments</span>
+                            <!-- Comments Thread -->
+                            <div id="fd-comments-list" style="max-height: 120px; overflow-y:auto; margin: 8px 0; display:flex; flex-direction:column; gap:6px;">
+                                <!-- Comments here -->
+                            </div>
+                            <div style="display:flex; gap:6px; align-items:center;">
+                                <input type="text" class="form-input" id="fd-new-comment-txt" placeholder="Add comment, type @CA to tag..." style="font-size:12px; padding:6px 10px;">
+                                <button class="btn btn-primary btn-sm" id="fd-btn-send-comment">Post</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" id="fd-btn-download">Download File</button>
+                <button class="btn btn-primary" id="fd-btn-action-share">Share Outbound</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- DIALOG: SECURE SHARING CREATOR MODAL -->
+    <div class="modal-overlay" id="modal-share-creator">
+        <div class="modal-card">
+            <div class="modal-header">
+                <span class="modal-title">Generate Secure Outbound Link</span>
+                <button class="close-btn" id="share-modal-close">×</button>
+            </div>
+            <div class="modal-body">
+                <div style="margin-bottom:16px; font-size:13px; color:var(--text-muted)">
+                    Sharing document: <strong id="share-document-label" style="color:var(--text-main)">Document.pdf</strong>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Recipient Mobile Number or Email Address</label>
+                    <input type="text" class="form-input" id="share-input-target" placeholder="e.g. client@gmail.com or +919876543210">
+                </div>
+                
+                <div class="settings-grid-2">
+                    <div class="form-group">
+                        <label class="form-label">Expiry Duration</label>
+                        <select class="form-select" id="share-select-expiry">
+                            <option value="1">1 Day</option>
+                            <option value="7" selected>7 Days</option>
+                            <option value="30">30 Days</option>
+                            <option value="never">No Expiration</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Security Restrictions</label>
+                        <select class="form-select" id="share-select-restriction">
+                            <option value="otp">Require Mobile OTP Login</option>
+                            <option value="watermark">Apply Confidential Watermark</option>
+                            <option value="readonly" selected>Read Only (Block Print & Download)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" id="share-btn-cancel">Cancel</button>
+                <button class="btn btn-primary" id="share-btn-generate">Generate Encrypted Link</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- DIALOG: ADD COMPLIANCE NOTIFICATION EVENT -->
+    <div class="modal-overlay" id="modal-compliance-creator">
+        <div class="modal-card">
+            <div class="modal-header">
+                <span class="modal-title">Schedule Compliance Deadline</span>
+                <button class="close-btn" id="compliance-modal-close">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">Filing / Return Title</label>
+                    <input type="text" class="form-input" id="comp-input-title" placeholder="e.g. GSTR-1 Monthly Return Filing">
+                </div>
+                
+                <div class="settings-grid-2">
+                    <div class="form-group">
+                        <label class="form-label">Due Date</label>
+                        <input type="date" class="form-input" id="comp-input-date" value="2026-07-10">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Filing Category</label>
+                        <select class="form-select" id="comp-select-category">
+                            <option value="GST" selected>GST Returns</option>
+                            <option value="ROC">ROC Filings</option>
+                            <option value="Income Tax">Income Tax Filings</option>
+                            <option value="Licenses">Licenses & Registrations</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Regulatory Authority / Remarks</label>
+                    <input type="text" class="form-input" id="comp-input-remarks" placeholder="GSTN, Ministry of Finance (India)">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" id="comp-btn-cancel">Cancel</button>
+                <button class="btn btn-primary" id="comp-btn-save">Schedule Event</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Javascript Core App Logic -->
+    <script src="js/app.js"></script>
+    <script src="js/vault.js"></script>
+    <script src="js/ai.js"></script>
+    <script src="js/compliance.js"></script>
+    <script src="js/collab.js"></script>
+    <script src="js/audit.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
